@@ -24,7 +24,7 @@
         </p>
         <div class="lp-actions">
             <a href="{{ url_for('register') }}" class="lp-btn">Create free account</a>
-            <a href="#" class="lp-btn">See how it works</a>
+            <button type="button" class="lp-btn" id="how-it-works-btn">See how it works</button>
         </div>
     </div>
 
@@ -70,6 +70,20 @@
     </div>
 </section>
 
+<div class="lp-modal" id="video-modal" hidden>
+    <div class="lp-modal-dialog" role="dialog" aria-modal="true" aria-label="How Spendly works">
+        <button type="button" class="lp-modal-close" id="video-modal-close" aria-label="Close video">&times;</button>
+        <div class="lp-modal-video">
+            {# Replace the video ID in data-src with the real video later #}
+            <iframe id="video-modal-frame"
+                    data-src="https://www.youtube.com/embed/aqz-KE-bpKQ?autoplay=1&rel=0"
+                    title="How Spendly works"
+                    allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+                    allowfullscreen></iframe>
+        </div>
+    </div>
+</div>
+
 <section class="features">
     <div class="features-inner">
         <div class="feature-card">
@@ -98,4 +112,8 @@
     </div>
 </section>
 
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/landing.js') }}"></script>
 {% endblock %}
